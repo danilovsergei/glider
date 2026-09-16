@@ -71,7 +71,7 @@ func (s *Socks5) DialUDP(network, addr string) (pc net.PacketConn, err error) {
 	}
 
 	var uAddr socks.Addr
-	if uAddr, err = s.connect(c, addr, socks.CmdUDPAssociate); err != nil {
+	if uAddr, err = s.connect(c, "0.0.0.0:0", socks.CmdUDPAssociate); err != nil {
 		c.Close()
 		return nil, err
 	}
